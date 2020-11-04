@@ -1,19 +1,67 @@
 public class LinkedList { 
   
-    Node head; // head of list 
+    node head; // head of list 
+     Node head;
+  	 Node tail;
+	
+	public LinkedList() {
+		head =  null;
+		tail =  null;
+	}
+  	      // Linked list Node. 
   
-    // Linked list Node. 
-    // This inner class is made static 
-    // so that main() can access it 
-    static class Node { 
+        class Node { 
   
-        int data; 
-        Node next; 
+          String name; 
+          String num ;
+          Node next; 
   
-        // Constructor 
-        Node(int d) 
+          // Constructor 
+            node( String name ,String num) 
+            { 
+              this.name = name;
+              this.num = num;
+              next = null; 
+            } // end Constructor 
+        
+          public Node getDate() {
+	           	return name + "+" + num;
+          	} // end get
+
+	
+         	
+       } // end class node
+ 
+
+
+  
+
+	public void add(Node a) {
+		Node n = new Node();
+		n.setItem(a); 
+		if (head == null) {
+			head =  n;
+			tail = n;
+		}
+		else {
+			n.setNext(head);
+			head = n;
+		}
+	}//end add 
+    
+    public String search(String name) 
+    { 
+        Node current = head;    //Initialize current 
+        while (current != null) 
         { 
-            data = d; 
-            next = null; 
+            if (current.name == name) 
+                return current.num;    //data found 
+          
+            current = current.next; 
         } 
-    } 
+        return "";    //data not found 
+    }// end search 
+	
+
+	
+  }
